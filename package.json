@@ -1,0 +1,16 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "chetotam",
+  "main": "main.js",
+  "scripts": {
+    "start":"test.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "NodeJs"
+  },
+  "author": "iskander",
+  "license": "ISC"
+}
