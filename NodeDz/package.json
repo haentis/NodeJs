@@ -1,0 +1,18 @@
+{
+  "name": "dz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.4",
+    "node": "^20.2.0",
+    "prompt-async": "^0.9.9",
+    "readline": "^1.3.0"
+  }
+}
