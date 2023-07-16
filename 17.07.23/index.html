@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.io Example</title>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h1>Список подключений:</h1>
+    <ul id="connections"></ul>
+    <h2>Отправить приватное сообщение:</h2>
+    <input type="text" id="messageInput" />
+    <button onclick="sendMessage()">Отправить</button>
+    <h2>Полученные сообщения:</h2>
+    <ul id="messages"></ul>
+
+    <script>
+      const socket = io();
+
+      socket.on('connections', (connections) => {
+        const connectionsList = document.getElementById('connections');
+        connectionsList.innerHTML = '';
+
+        connections.forEach((connection) => {
+          const listItem = document.createElement('li');
+          listItem.textContent = connection;
+          connectionsList.appendChild(listItem);
+        });
+      });
+
+      socket.on('private message', (msg) => {
+        const messagesList = document.getElementById('messages');
+        const listItem = document.createElement('li');
+        listItem.textContent = msg;
+        messagesList.appendChild(listItem);
+      });
+
+      function sendMessage() {
+        const messageInput = document.getElementById('messageInput');
+        const targetSocketId = prompt('Введите ID получателя:');
+        const message = messageInput.value;
+
+        socket.emit('private message', message, targetSocketId);
+
+        messageInput.value = '';
+      }
+    </script>
+  </body>
+</html>
