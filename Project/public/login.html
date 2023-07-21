@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Регистрация / Авторизация</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <h1>Регистрация / Авторизация</h1>
+  <button id="registerButton">Регистрация</button>
+  <button id="loginButton">Авторизация</button>
+  <div id="registerForm" style="display:none;">
+    <h2>Регистрация</h2>
+    <label for="regUsername">Имя пользователя:</label>
+    <input type="text" id="regUsername" name="username" required>
+    <br>
+    <label for="regPassword">Пароль:</label>
+    <input type="password" id="regPassword" name="password" required>
+    <br>
+    <button id="registerSubmit">Зарегистрироваться</button>
+  </div>
+  <div id="loginForm" style="display:none;">
+    <h2>Авторизация</h2>
+    <label for="loginUsername">Имя пользователя:</label>
+    <input type="text" id="loginUsername" name="username" required>
+    <br>
+    <label for="loginPassword">Пароль:</label>
+    <input type="password" id="loginPassword" name="password" required>
+    <br>
+    <button id="loginSubmit">Войти</button>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
