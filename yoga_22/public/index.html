@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Index</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <h1>Крестики-нолики</h1>
+    <div id="board"></div>
+    <button id="resetButton" onclick="resetBoard()">Начать заново</button>
+    <button id="endButton" onclick="endGame()">Завершить игру</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <button id="logoutButton">Logout</button>
+    <script src="js/index.js"></script>
+</body>
+<script>
+  const socket = io();
+
+// Обработка получения сообщения от сервера
+socket.on('endgame', (data) => {
+  const output = document.getElementById('output');
+  output.innerHTML += `<p>${data}</p>`;
+});
+
+// Функция для отправки сообщения на сервер о завершении игры
+function endGame() {
+  const message = 'Игра завершена!';
+  socket.emit('endgame', message);
+  
+  // Перенаправляем пользователя на главную страницу после завершения игры
+  window.location.href = '/login.html';
+}
+</script>
+</html>
